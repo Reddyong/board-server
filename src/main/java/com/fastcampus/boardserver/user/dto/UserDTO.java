@@ -5,7 +5,6 @@ import com.fastcampus.boardserver.user.enums.Status;
 import java.time.LocalDateTime;
 
 public record UserDTO(
-        Integer id,
         String userId,
         String password,
         String nickname,
@@ -15,5 +14,9 @@ public record UserDTO(
         Boolean isWithDraw,
         Status status
 ) {
-
+    public static UserDTO of(String userId, String password, String nickname,
+                             Boolean isAdmin, LocalDateTime createTime, LocalDateTime updateTime,
+                             Boolean isWithDraw, Status status) {
+        return new UserDTO(userId, password, nickname, isAdmin, createTime, updateTime, isWithDraw, status);
+    }
 }
