@@ -21,7 +21,7 @@ public class User {
     @Column(name = "user_id", nullable = false, length = 50)
     private String userId;
 
-    @Column(name = "password", nullable = false, length = 50)
+    @Column(name = "password", nullable = false)
     private String password;
 
     @Column(name = "nickname", nullable = false, length = 50)
@@ -43,4 +43,29 @@ public class User {
     @Column(name = "status", nullable = false, columnDefinition = "varchar(50)")
     private Status status;
 
+    public User(String userId, String password, String nickname, Boolean isAdmin, LocalDateTime createTime, LocalDateTime updateTime, Boolean isWithDraw, Status status) {
+        this.userId = userId;
+        this.password = password;
+        this.nickname = nickname;
+        this.isAdmin = isAdmin;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+        this.isWithDraw = isWithDraw;
+        this.status = status;
+    }
+
+    public static User of(String userId, String password, String nickname,
+                          Boolean isAdmin, LocalDateTime createTime, LocalDateTime updateTime,
+                          Boolean isWithDraw, Status status) {
+        return new User(
+                userId,
+                password,
+                nickname,
+                isAdmin,
+                createTime,
+                updateTime,
+                isWithDraw,
+                status
+        );
+    }
 }
