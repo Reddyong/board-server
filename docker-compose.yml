@@ -1,0 +1,13 @@
+services:
+  mysql:
+    platform: linux/amd64
+    image: mysql:8.0.26
+    container_name: boardserver_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234!!
+      MYSQL_DATABASE: boardserver
+      TZ: Asia/Seoul
+    volumes:
+      - /Users/hongdaeyong/study/db/boardserver/mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
