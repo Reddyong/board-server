@@ -1,10 +1,11 @@
 package com.fastcampus.boardserver.user.service;
 
 import com.fastcampus.boardserver.user.dto.UserDTO;
+import com.fastcampus.boardserver.user.dto.request.UserProfile;
 
 public interface UserService {
     // 회원가입
-    void register(UserDTO userDTO);
+    void register(UserProfile userProfile);
 
     // 로그인
 
