@@ -1,6 +1,7 @@
 package com.fastcampus.boardserver.user.service;
 
 import com.fastcampus.boardserver.user.dto.UserDTO;
+import com.fastcampus.boardserver.user.dto.request.LoginProfile;
 import com.fastcampus.boardserver.user.dto.request.UserProfile;
 
 public interface UserService {
@@ -8,6 +9,7 @@ public interface UserService {
     void register(UserProfile userProfile);
 
     // 로그인
+    UserDTO login(LoginProfile loginProfile);
 
     // 중복 ID 검증
 
