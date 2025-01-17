@@ -20,6 +20,12 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void register(UserProfile userProfile) {
+        // 중복 아이디 검증
+        if (userRepository.existsByUserId(userProfile.userId())) {
+            throw new IllegalArgumentException("이미 사용중인 아이디 입니다.");
+        }
+
+        // 비밀번호 인코딩
         String encodedPassword = passwordEncoder.encode(userProfile.password());
 
         User user = User.of(
